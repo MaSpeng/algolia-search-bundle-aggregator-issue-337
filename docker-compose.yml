@@ -1,0 +1,21 @@
+version: "2.4"
+
+services:
+  composer:
+    image: library/composer:1.10
+    working_dir: /var/www/app
+    environment:
+      COMPOSER_HOME: /composer
+    volumes:
+      - composer:/composer/cache/files:delegated
+      - ./:/var/www/app:delegated
+
+  php:
+    image: library/php:7.4-cli-alpine
+    working_dir: /var/www/app
+    volumes:
+      - ./:/var/www/app:cached
+      - ./var:/var/www/app/var:delegated
+
+volumes:
+  composer:

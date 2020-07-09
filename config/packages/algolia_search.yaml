@@ -1,0 +1,15 @@
+algolia_search:
+    prefix: '%env(APP_ENV)%_'
+
+    doctrineSubscribedEvents: []
+
+    indices:
+      - name: posts
+        class: App\Entity\Post
+
+      # No comments will be published to the aggregated index
+      #- name: comments
+      #  class: App\Entity\Comment
+
+      - name: news
+        class: App\Entity\News
